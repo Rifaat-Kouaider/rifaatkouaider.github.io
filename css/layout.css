@@ -292,7 +292,7 @@ ul#nav li.current a { color: #F06000; }
 }
 .bars li {
    position: relative;
-  	margin-bottom: 60px;
+  	margin-bottom: 55px;
   	background: #ccc;
   	height: 30px;
   	border-radius: 3px;
@@ -350,6 +350,7 @@ ul#nav li.current a { color: #F06000; }
   	-webkit-animation: adobe 2s ease;
 }
 
+/*@-moz-keyframes*/
 @-moz-keyframes weblang {
   0%   { width: 0px;  }
   100% { width: 82%;  }
@@ -367,6 +368,32 @@ ul#nav li.current a { color: #F06000; }
   100% { width: 73%;  }
 }
 @-moz-keyframes matlab {
+  0%   { width: 0px;  }
+  100% { width: 80%;  }
+}
+@-moz-keyframes adobe {
+  0%   { width: 0px;  }
+  100% { width: 80%;  }
+}
+
+/*@-webkit-keyframes*/
+@-webkit-keyframes weblang {
+  0%   { width: 0px;  }
+  100% { width: 82%;  }
+}
+@-webkit-keyframes vhdl {
+  0%   { width: 0px;  }
+  100% { width: 70%;  }
+}
+@-webkit-keyframes javalang {
+  0%   { width: 0px;  }
+  100% { width: 80%;  }
+}
+@-webkit-keyframes cpplang {
+  0%   { width: 0px;  }
+  100% { width: 73%;  }
+}
+@-webkit-keyframes matlab {
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
