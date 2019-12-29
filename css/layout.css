@@ -370,10 +370,6 @@ ul#nav li.current a { color: #F06000; }
   0%   { width: 0px;  }
   100% { width: 80%;  }
 }
-@-moz-keyframes jquery {
-  0%   { width: 0px;  }
-  100% { width: 50%;  }
-}
 @-webkit-keyframes adobe {
   0%   { width: 0px;  }
   100% { width: 80%;  }
