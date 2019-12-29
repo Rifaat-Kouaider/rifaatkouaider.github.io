@@ -310,7 +310,6 @@ ul#nav li.current a { color: #F06000; }
    position: absolute;
    left: 0;
    top: 0;
-
    margin: 0;
    padding-right: 24px;
   	background: #313131;
@@ -327,28 +326,28 @@ ul#nav li.current a { color: #F06000; }
 }
 .vhdl {
   	width: 70%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
+  	-moz-animation: vhdl 2s ease;
+  	-webkit-animation: vhdl 2s ease;
 }
 .javalang {
   	width: 80%;
-  	-moz-animation: wordpress 2s ease;
-  	-webkit-animation: wordpress 2s ease;
+  	-moz-animation: javalang 2s ease;
+  	-webkit-animation: javalang 2s ease;
 }
 .cpplang {
   	width: 73%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
+  	-moz-animation: cpplang 2s ease;
+  	-webkit-animation: cpplang 2s ease;
 }
 .matlab {
   	width: 80%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
+  	-moz-animation: matlab 2s ease;
+  	-webkit-animation: matlab 2s ease;
 }
 .adobe {
   	width: 80%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+  	-moz-animation: adobe 2s ease;
+  	-webkit-animation: adobe 2s ease;
 }
 
 @-moz-keyframes weblang {
@@ -375,7 +374,6 @@ ul#nav li.current a { color: #F06000; }
   0%   { width: 0px;  }
   100% { width: 50%;  }
 }
-
 @-webkit-keyframes adobe {
   0%   { width: 0px;  }
   100% { width: 80%;  }
