@@ -718,7 +718,7 @@ call-to-action .button {
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
 .flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
-/* Suggested container for slide animation setups. Can replace this with your own */
+/* Container for slide animation setups */
 .flex-container { zoom: 1; position: relative; }
 
 /* Clearfix for .slides */
@@ -732,8 +732,6 @@ call-to-action .button {
 }
 
 /* No JavaScript Fallback */
-/* If you are not using another script, such as Modernizr, make sure you
- * include js that eliminates this class on page load */
 .no-js .slides > li:first-child { display: block; }
 
 /* Slider Styles */
