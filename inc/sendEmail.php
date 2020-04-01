@@ -1,4 +1,5 @@
 ﻿<?php
+
 $siteOwnersEmail = 'rifaat.kouaider@icloud.com';
 
 
@@ -10,19 +11,19 @@ if($_POST) {
    $contact_message = trim(stripslashes($_POST['contactMessage']));
 
    // Check Name
-	if (strlen($name) < 2) {
-		$error['name'] = "Please enter your name.";
+	if (strlen($name) < 1) {
+		$error['name'] = "Is this really your full name? Seems too short.";
 	}
 	// Check Email
 	if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-		$error['email'] = "Please enter a valid email address.";
+		$error['email'] = "I couldn't find this e-mail. Please enter a valid one.";
 	}
 	// Check Message
-	if (strlen($contact_message) < 15) {
-		$error['message'] = "Please enter your message. It should have at least 15 characters.";
+	if (strlen($contact_message) < 10) {
+		$error['message'] = "This message is very short. Any thing less than 10 characters should be a text message.";
 	}
    // Subject
-	if ($subject == '') { $subject = "Contact Form Submission"; }
+	if ($subject == '') { $subject = "Contact Form Submission on Kouaider.com"; }
 
 
    // Set Message
@@ -30,7 +31,7 @@ if($_POST) {
 	$message .= "Email address: " . $email . "<br />";
    $message .= "Message: <br />";
    $message .= $contact_message;
-   $message .= "<br /> ----- <br /> This email was sent from your resume website's contact form. <br />";
+   $message .= "<br /> ----- <br /> This email was sent from your site's contact form. <br />";
 
    // Set From: header
    $from =  $name . " <" . $email . ">";
@@ -49,7 +50,7 @@ if($_POST) {
 
 		if ($mail) { echo "OK"; }
       else { echo "Something went wrong. Please try again."; }
-		
+
 	} # end if - no validation error
 
 	else {
@@ -57,7 +58,7 @@ if($_POST) {
 		$response = (isset($error['name'])) ? $error['name'] . "<br /> \n" : null;
 		$response .= (isset($error['email'])) ? $error['email'] . "<br /> \n" : null;
 		$response .= (isset($error['message'])) ? $error['message'] . "<br />" : null;
-		
+
 		echo $response;
 
 	} # end if - there was a validation error
