@@ -605,31 +605,7 @@ ul { list-style: none; }
   background: var(--blue);
   opacity: 0.7;
 }
-.education-block {
-  max-width: 760px;
-  margin: 64px auto 0;
-  padding-top: 48px;
-  border-top: 1px solid #DDD;
-}
-.education-block h3 {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--blue);
-  margin-bottom: 24px;
-}
-.edu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 16px 0;
-  border-bottom: 1px solid #E8E8E8;
-}
-.edu-item:last-child { border-bottom: none; }
-.edu-school { font-size: 15px; font-weight: 700; color: var(--black); }
-.edu-degree { font-size: 13px; color: #666; margin-top: 2px; }
-.edu-year { font-size: 13px; font-weight: 600; color: #999; white-space: nowrap; }
+
 
 
 /* =============================================
