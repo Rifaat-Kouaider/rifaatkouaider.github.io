@@ -462,7 +462,7 @@ ul { list-style: none; }
   padding: 36px;
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease, background 0.25s ease;
 }
 .service-card.is-visible {
   opacity: 1;
@@ -508,7 +508,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: background var(--ease), transform 0.35s ease;
+  transition: background var(--ease), transform 0.25s ease;
 }
 .service-card:hover .service-icon { transform: translateY(-3px); }
 .service-icon i { font-size: 18px; color: var(--blue); }
