@@ -504,7 +504,7 @@ ul { list-style: none; }
 .experience-narrative p {
   font-size: 17px;
   line-height: 1.8;
-  color: var(--gray-light);
+  color: #444;
   margin-bottom: 22px;
 }
 .experience-narrative p:last-child { margin-bottom: 0; }
