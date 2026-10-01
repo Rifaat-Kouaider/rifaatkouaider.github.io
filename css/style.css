@@ -751,3 +751,49 @@ footer {
   .hero-cta .btn { text-align: center; }
   .stat-number { font-size: 28px; }
 }
+
+/* ── FAQ ─────────────────────────────────────────────── */
+.faq {
+  background: var(--white);
+  color: var(--black);
+  padding: 120px 0;
+}
+.faq .section-header h2 { color: var(--black); }
+.faq .section-header p { color: #666; }
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq-item { border-bottom: 1px solid #E4E4E4; }
+.faq-item:first-child { border-top: 1px solid #E4E4E4; }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 44px 22px 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--black);
+  position: relative;
+  transition: color var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--blue);
+  transition: transform var(--ease);
+}
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-item summary:hover { color: var(--blue); }
+.faq-item p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #555;
+  padding: 0 44px 26px 0;
+  margin: 0;
+}

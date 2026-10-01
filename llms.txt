@@ -1,0 +1,32 @@
+# Rifaat Kouaider — Healthcare IT Consulting
+
+> Independent healthcare IT consultant for medical practices across the United States. EMR/EHR migrations, PACS imaging systems, VOIP phone systems, cloud migration, network infrastructure, Microsoft 365 / Google Workspace, and AI tools for practices. Computer Engineer with 10+ years in healthcare technology; 50+ practices served.
+
+## Services
+
+- [EMR Replacement Consulting](https://kouaider.com/#services): Structured EMR/EHR migrations that minimize downtime, protect patient data, and ensure staff adoption from day one.
+- [PACS Consulting](https://kouaider.com/#services): Picture Archiving and Communication Systems tailored to imaging workflow and long-term storage requirements.
+- [VOIP Solutions](https://kouaider.com/#services): Scalable, cost-effective VOIP phone systems designed for clinical environments.
+- [Cloud Migration](https://kouaider.com/#services): Secure, phased moves from on-premise infrastructure to the cloud with minimal disruption to daily operations.
+- [Network Infrastructure](https://kouaider.com/#services): Design, installation, and maintenance of robust networks for healthcare environments, from new builds to full overhauls.
+- [Organization Productivity Suites](https://kouaider.com/#services): Microsoft 365 and Google Workspace deployment and management to streamline collaboration across the practice.
+- [Technology Strategy](https://kouaider.com/#services): Actionable IT roadmaps aligned with clinical workflows, compliance requirements, and growth objectives.
+- [AI Tools Consulting](https://kouaider.com/#services): AI-powered phone systems, smart scheduling, clinical transcription, admin automation, and practical AI use policies.
+- [Active Directory & Identity Management](https://kouaider.com/#services): User access, credentials, and multi-layer security protocols across the organization.
+- [Healthcare IT Roadmap Consulting](https://kouaider.com/#services): Long-term technology planning bridging clinical operations, compliance standards, and business objectives.
+- [Vendor & Third-Party Management](https://kouaider.com/#services): Vendor relationships, service contracts, and escalations handled on the practice's behalf.
+
+## About
+
+Rifaat Kouaider is a Computer Engineer and healthcare technology consultant with over a decade of hands-on experience spanning IT infrastructure, systems engineering, and software product development. As Product Owner & Partner at HealthSpaces, he has worked with medical practices across the United States to design, implement, and optimize technology systems.
+
+## Contact
+
+- Email: rifaat@kouaider.com
+- Contact form: https://kouaider.com/#contact
+- LinkedIn: https://www.linkedin.com/in/rifaatk/
+- GitHub: https://github.com/Rifaat-Kouaider
+
+## FAQ
+
+Common questions answered at https://kouaider.com/#faq
