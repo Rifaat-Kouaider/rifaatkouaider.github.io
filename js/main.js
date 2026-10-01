@@ -11,6 +11,7 @@
   const navLinks  = document.querySelector('.nav-links');
   hamburger.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(open));
     hamburger.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
@@ -18,6 +19,7 @@
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
