@@ -510,7 +510,7 @@ ul { list-style: none; }
   margin-bottom: 20px;
   transition: background var(--ease), transform 0.35s ease;
 }
-.service-card:hover .service-icon { background: rgba(27,79,255,0.28); transform: translateY(-3px); }
+.service-card:hover .service-icon { transform: translateY(-3px); }
 .service-icon i { font-size: 18px; color: var(--blue); }
 .service-card h3 {
   font-size: 16px;
