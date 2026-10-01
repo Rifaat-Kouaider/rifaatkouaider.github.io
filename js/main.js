@@ -4,7 +4,7 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  }, { passive: true });
 
   // ── Mobile nav ──
   const hamburger = document.getElementById('hamburger');
@@ -42,7 +42,7 @@
     });
   }, { passive: true });
 
-  // ── Intersection Observer (fade-up, service cards, timeline) ──
+  // ── Intersection Observer (fade-up, service cards) ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -58,12 +58,6 @@
   document.querySelectorAll('.service-card').forEach((card, i) => {
     card.style.transitionDelay = (i * 70) + 'ms';
     observer.observe(card);
-  });
-
-  // Staggered timeline items
-  document.querySelectorAll('.timeline-item').forEach((item, i) => {
-    item.style.transitionDelay = (i * 90) + 'ms';
-    observer.observe(item);
   });
 
   // ── Formspree AJAX submission ──
@@ -131,5 +125,10 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-number[data-count]').forEach(el => statObserver.observe(el));
+
+
+  // ── Footer year ──
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 })();
