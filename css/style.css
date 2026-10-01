@@ -473,19 +473,21 @@ ul { list-style: none; }
   transform: translateY(-6px);
   box-shadow: 0 20px 44px rgba(27, 79, 255, 0.16);
 }
-.service-card-cta {
+.service-card-cta.service-card {
   background: var(--blue);
   display: block;
   text-decoration: none;
 }
-.service-card-cta:hover {
+.service-card-cta.service-card:hover {
   background: var(--blue-hover);
   transform: translateY(-6px);
   box-shadow: 0 20px 44px rgba(27, 79, 255, 0.35);
 }
-.service-card-cta h3, .service-card-cta p { color: #fff; }
-.service-card-cta .service-icon { background: rgba(255, 255, 255, 0.16); }
-.service-card-cta .service-icon i { color: #fff; }
+.service-card-cta.service-card h3,
+.service-card-cta.service-card p { color: #fff; }
+.service-card-cta.service-card .service-icon,
+.service-card-cta.service-card:hover .service-icon { background: transparent; }
+.service-card-cta.service-card .service-icon i { color: #fff; }
 .card-cta {
   display: inline-flex;
   align-items: center;
