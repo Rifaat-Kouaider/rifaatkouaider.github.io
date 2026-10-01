@@ -4,16 +4,16 @@
 
 ## Services
 
-- [EMR Replacement Consulting](https://kouaider.com/#services): Structured EMR/EHR migrations that minimize downtime, protect patient data, and ensure staff adoption from day one.
-- [PACS Consulting](https://kouaider.com/#services): Picture Archiving and Communication Systems tailored to imaging workflow and long-term storage requirements.
+- [EMR Replacement](https://kouaider.com/#services): Structured EMR/EHR migrations that minimize downtime, protect patient data, and ensure staff adoption from day one.
+- [PACS Solutions](https://kouaider.com/#services): Picture Archiving and Communication Systems tailored to imaging workflow and long-term storage requirements.
 - [VOIP Solutions](https://kouaider.com/#services): Scalable, cost-effective VOIP phone systems designed for clinical environments.
 - [Cloud Migration](https://kouaider.com/#services): Secure, phased moves from on-premise infrastructure to the cloud with minimal disruption to daily operations.
 - [Network Infrastructure](https://kouaider.com/#services): Design, installation, and maintenance of robust networks for healthcare environments, from new builds to full overhauls.
 - [Organization Productivity Suites](https://kouaider.com/#services): Microsoft 365 and Google Workspace deployment and management to streamline collaboration across the practice.
 - [Technology Strategy](https://kouaider.com/#services): Actionable IT roadmaps aligned with clinical workflows, compliance requirements, and growth objectives.
-- [AI Tools Consulting](https://kouaider.com/#services): AI-powered phone systems, smart scheduling, clinical transcription, admin automation, and practical AI use policies.
+- [AI Tools](https://kouaider.com/#services): AI-powered phone systems, smart scheduling, clinical transcription, admin automation, and practical AI use policies.
 - [Active Directory & Identity Management](https://kouaider.com/#services): User access, credentials, and multi-layer security protocols across the organization.
-- [Healthcare IT Roadmap Consulting](https://kouaider.com/#services): Long-term technology planning bridging clinical operations, compliance standards, and business objectives.
+- [Technology Roadmaps](https://kouaider.com/#services): Long-term technology planning bridging clinical operations, compliance standards, and business objectives.
 - [Vendor & Third-Party Management](https://kouaider.com/#services): Vendor relationships, service contracts, and escalations handled on the practice's behalf.
 
 ## About
