@@ -499,7 +499,6 @@ ul { list-style: none; }
 }
 }
 .service-icon {
-  will-change: transform;
   width: 46px;
   height: 46px;
   background: var(--blue-glow);
@@ -508,9 +507,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: background var(--ease), transform 0.25s ease;
 }
-.service-card:hover .service-icon { transform: translateY(-3px); }
 .service-icon i { font-size: 18px; color: var(--blue); }
 .service-card h3 {
   font-size: 16px;
