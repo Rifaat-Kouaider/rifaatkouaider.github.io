@@ -138,14 +138,28 @@ ul { list-style: none; }
   top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 28px 0;
-  transition: all var(--ease);
+  transition: padding var(--ease), border-color var(--ease);
+}
+/* The blur lives on a pseudo-layer, NOT on #navbar itself: backdrop-filter
+   on #navbar would trap the fullscreen mobile menu (a fixed-position child)
+   inside the navbar's box as soon as the page is scrolled. */
+#navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,10,0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity var(--ease);
+  z-index: -1;
+  pointer-events: none;
 }
 #navbar.scrolled {
-  background: rgba(10,10,10,0.95);
-  backdrop-filter: blur(12px);
   padding: 16px 0;
   border-bottom: 1px solid var(--dark-3);
 }
+#navbar.scrolled::before { opacity: 1; }
 .nav-container {
   max-width: var(--max-width);
   margin: 0 auto;

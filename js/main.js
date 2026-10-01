@@ -9,18 +9,23 @@
   // ── Mobile nav ──
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.querySelector('.nav-links');
+  const lockScroll = (lock) => {
+    // iOS Safari ignores overflow:hidden on body alone — html needs it too
+    document.body.style.overflow = lock ? 'hidden' : '';
+    document.documentElement.style.overflow = lock ? 'hidden' : '';
+  };
   hamburger.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', String(open));
     hamburger.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+    lockScroll(open);
   });
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      lockScroll(false);
     });
   });
 
