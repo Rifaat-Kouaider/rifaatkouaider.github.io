@@ -24,6 +24,9 @@
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
 body {
   font-family: var(--font);
   background: var(--black);
@@ -419,6 +422,19 @@ ul { list-style: none; }
 }
 .experience .section-header h2 { color: var(--black); }
 .experience .section-header p { color: #666; }
+/* ── Experience narrative ── */
+.experience-narrative {
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.experience-narrative p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  margin-bottom: 22px;
+}
+.experience-narrative p:last-child { margin-bottom: 0; }
+
 .timeline {
   max-width: 760px;
   margin: 0 auto;
