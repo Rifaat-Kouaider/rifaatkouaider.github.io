@@ -18,12 +18,17 @@
   <meta property="og:title" content="Rifaat Kouaider | Healthcare IT Consulting">
   <meta property="og:description" content="Technology consulting for medical practices — EMR, PACS, VOIP, cloud, and more.">
   <meta property="og:url" content="https://kouaider.com">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="https://kouaider.com/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rifaat Kouaider | Healthcare IT Consulting">
+  <meta name="twitter:description" content="Technology consulting for medical practices — EMR, PACS, VOIP, cloud, and more.">
+  <meta name="twitter:image" content="https://kouaider.com/og-image.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
@@ -39,6 +44,28 @@
     gtag('js', new Date());
     gtag('config', 'G-YNMH8P6FTJ');
   </script>
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Rifaat Kouaider | Healthcare IT Consulting",
+    "url": "https://kouaider.com",
+    "description": "Healthcare IT consulting services — EMR replacement, PACS, VOIP, cloud migration, network infrastructure, and technology strategy for medical practices.",
+    "email": "rifaat@kouaider.com",
+    "areaServed": "United States",
+    "founder": {
+      "@type": "Person",
+      "name": "Rifaat Kouaider",
+      "jobTitle": "Healthcare IT Consultant",
+      "url": "https://kouaider.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/rifaatk/",
+        "https://github.com/Rifaat-Kouaider"
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -48,13 +75,13 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo">Rifaat<span>.</span></a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
       </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -85,7 +112,7 @@
       <div class="about-grid">
 
         <div class="about-image-wrap fade-up">
-          <img src="images/profilepic.jpg" alt="Rifaat Kouaider">
+          <img src="images/profilepic.jpg" alt="Rifaat Kouaider" loading="lazy">
         </div>
 
         <div class="about-content fade-up">
@@ -295,21 +322,20 @@
         </div>
 
         <div class="fade-up">
-          <!-- Replace YOUR_FORM_ID with your Formspree form ID after signing up at formspree.io -->
           <form id="contact-form" class="contact-form" action="https://formspree.io/f/xdaygpyj" method="POST">
             <div class="form-row">
               <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="name" placeholder="Your Name" aria-label="Your name" required>
               </div>
               <div class="form-group">
-                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="email" name="email" placeholder="Your Email" aria-label="Your email" required>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" name="organization" placeholder="Practice / Organization">
+              <input type="text" name="organization" placeholder="Practice / Organization" aria-label="Practice or organization">
             </div>
             <div class="form-group">
-              <select name="service">
+              <select name="service" aria-label="Service of interest">
                 <option value="" disabled selected>Service of Interest</option>
                 <option>EMR Replacement Consulting</option>
                 <option>PACS Consulting</option>
@@ -325,7 +351,7 @@
               </select>
             </div>
             <div class="form-group">
-              <textarea name="message" placeholder="Tell me about your needs…" required></textarea>
+              <textarea name="message" placeholder="Tell me about your needs…" aria-label="Tell me about your needs" required></textarea>
             </div>
             <div class="form-submit">
               <button type="submit" class="btn btn-primary">Send Message</button>
