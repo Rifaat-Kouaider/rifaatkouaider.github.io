@@ -84,7 +84,7 @@ ul { list-style: none; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   border-radius: var(--radius);
-  transition: all var(--ease);
+  transition: transform var(--ease), background var(--ease), border-color var(--ease), color var(--ease);
   cursor: pointer;
   border: 2px solid transparent;
 }
@@ -213,7 +213,7 @@ ul { list-style: none; }
   width: 24px;
   height: 2px;
   background: var(--white);
-  transition: all var(--ease);
+  transition: transform var(--ease), opacity var(--ease);
 }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
@@ -227,7 +227,7 @@ ul { list-style: none; }
 }
 .hero-content > * {
   opacity: 0;
-  animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .hero-content > :nth-child(1) { animation-delay: 0.15s; }
 .hero-content > :nth-child(2) { animation-delay: 0.3s; }
@@ -462,7 +462,7 @@ ul { list-style: none; }
   padding: 36px;
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.3s ease, background 0.25s ease;
+  transition: opacity 0.5s ease, transform 0.3s ease, background 0.25s ease, box-shadow 0.3s ease;
 }
 .service-card.is-visible {
   opacity: 1;
@@ -496,7 +496,6 @@ ul { list-style: none; }
   font-weight: 700;
   font-size: 14px;
   color: #fff;
-}
 }
 .service-icon {
   width: 46px;
@@ -674,16 +673,18 @@ footer {
   .nav-hamburger { display: flex; }
   .hero { padding: 120px 24px 72px; }
   .hero h1 { letter-spacing: -1.5px; }
-  .about, .services, .experience, .contact { padding: 88px 0; }
+  .about, .services, .experience, .contact, .faq { padding: 88px 0; }
   .section-header h2,
   .about-content h2,
   .contact-info h2 { font-size: 32px; letter-spacing: -0.5px; }
   .about-stats { gap: 24px; }
+  .section-header { margin-bottom: 44px; }
   .services-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-content { flex-direction: column; gap: 16px; text-align: center; }
 }
 @media (max-width: 480px) {
+  .about-stats { flex-direction: column; gap: 20px; }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { text-align: center; }
   .stat-number { font-size: 28px; }

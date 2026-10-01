@@ -54,9 +54,16 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Staggered service cards
+  // Staggered service cards — delay is cleared after the entrance so hover never lags
   document.querySelectorAll('.service-card').forEach((card, i) => {
-    card.style.transitionDelay = (i * 70) + 'ms';
+    const delay = i * 70;
+    card.style.transitionDelay = delay + 'ms';
+    card.addEventListener('transitionend', function clearDelay(e) {
+      if (e.propertyName === 'opacity') {
+        card.style.transitionDelay = '';
+        card.removeEventListener('transitionend', clearDelay);
+      }
+    });
     observer.observe(card);
   });
 
