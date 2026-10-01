@@ -26,6 +26,9 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .hero-content > * { opacity: 1; animation: none; }
+  .hero::before { animation: none; }
+  .marquee-track { animation: none; }
 }
 body {
   font-family: var(--font);
@@ -201,6 +204,72 @@ ul { list-style: none; }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ── Hero entrance ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * {
+  opacity: 0;
+  animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-content > :nth-child(1) { animation-delay: 0.15s; }
+.hero-content > :nth-child(2) { animation-delay: 0.3s; }
+.hero-content > :nth-child(3) { animation-delay: 0.45s; }
+.hero-content > :nth-child(4) { animation-delay: 0.6s; }
+
+/* ── Ambient hero glow ── */
+.hero::before { animation: heroGlow 16s ease-in-out infinite alternate; }
+@keyframes heroGlow {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-6%, 8%, 0) scale(1.12); }
+}
+
+/* ── Scroll progress ── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), #6d8dff);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+/* ── Specialties marquee ── */
+.marquee {
+  overflow: hidden;
+  background: var(--dark-1);
+  border-top: 1px solid var(--dark-3);
+  border-bottom: 1px solid var(--dark-3);
+  padding: 22px 0;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 44px;
+  padding-right: 44px;
+  white-space: nowrap;
+}
+.marquee-group span {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gray-light);
+}
+.marquee-dot { color: var(--blue); font-size: 16px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
 
 
 /* =============================================
@@ -385,8 +454,13 @@ ul { list-style: none; }
   opacity: 1;
   transform: translateY(0);
 }
-.service-card:hover { background: var(--dark-2); }
+.service-card:hover {
+  background: var(--dark-2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(27, 79, 255, 0.16);
+}
 .service-icon {
+  will-change: transform;
   width: 46px;
   height: 46px;
   background: var(--blue-glow);
@@ -395,9 +469,9 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: background var(--ease);
+  transition: background var(--ease), transform 0.35s ease;
 }
-.service-card:hover .service-icon { background: rgba(27,79,255,0.22); }
+.service-card:hover .service-icon { background: rgba(27,79,255,0.28); transform: translateY(-3px); }
 .service-icon i { font-size: 18px; color: var(--blue); }
 .service-card h3 {
   font-size: 16px;
