@@ -472,6 +472,7 @@ ul { list-style: none; }
   background: var(--dark-2);
   transform: translateY(-6px);
   box-shadow: 0 20px 44px rgba(27, 79, 255, 0.16);
+}
 .service-card-cta {
   background: var(--blue);
   display: block;
