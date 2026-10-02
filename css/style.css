@@ -892,8 +892,9 @@ footer {
   letter-spacing: -1px;
   margin-bottom: 8px;
 }
-.quiz-score-wrap { margin: 0 auto 30px; max-width: 340px; }
-.quiz-score-big { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1; margin: 34px 0 16px; color: var(--white); }
+.quiz-score-wrap { margin: 34px auto 30px; max-width: 340px; }
+.quiz-score-label { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+.quiz-score-big { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1; margin: 0 0 16px; color: var(--white); }
 .quiz-score-bar { height: 6px; background: var(--dark-2); border-radius: 3px; overflow: hidden; }
 .quiz-score-fill { height: 100%; background: var(--blue); border-radius: 3px; transition: width 0.8s ease; }
 .quiz-result > p {
