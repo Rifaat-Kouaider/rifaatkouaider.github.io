@@ -1058,6 +1058,16 @@ footer {
   margin-bottom: 18px;
 }
 .post-meta { color: var(--gray); font-size: 14px; letter-spacing: 1px; }
+.listen-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 20px; padding: 11px 22px;
+  background: transparent; border: 1px solid rgba(27,79,255,0.35); border-radius: 999px;
+  color: var(--white); font-family: var(--font); font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.listen-btn:hover { border-color: var(--blue); box-shadow: 0 0 18px rgba(27,79,255,0.25); }
+.listen-btn .fa { color: var(--blue); font-size: 15px; }
+.listen-btn.is-playing { border-color: var(--blue); box-shadow: 0 0 18px rgba(27,79,255,0.25); }
 .post-body { font-size: 18px; line-height: 1.85; color: var(--off-white); }
 .post-body p { margin-bottom: 28px; }
 .post-body h2 {
