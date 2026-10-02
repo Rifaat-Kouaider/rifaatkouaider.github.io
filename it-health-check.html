@@ -93,6 +93,9 @@
   (function () {
     'use strict';
 
+    // Set after deploying the Cloudflare worker (see quiz-results-worker/SETUP.md)
+    var RESULTS_WORKER_URL = 'https://YOUR-WORKER.workers.dev';
+
     var QUESTIONS = [
       {
         q: 'How does your practice handle IT issues today?',
@@ -254,7 +257,54 @@
         return '<a href="index.html?' + qp.toString() + '#contact" class="btn btn-primary">Discuss Your Results</a>';
       })() +
           '<button type="button" class="btn btn-secondary" id="quizRetake">Retake the Check</button>' +
+        '</div>' +
+        '<div class="quiz-email">' +
+          '<p>Want these results in your inbox? We\u2019ll send them over.</p>' +
+          '<form class="quiz-email-form" id="quizEmailForm" novalidate>' +
+            '<input type="email" id="quizEmail" placeholder="you@practice.com" aria-label="Email address" autocomplete="email">' +
+            '<button type="submit" class="btn btn-secondary">Email My Results</button>' +
+          '</form>' +
+          '<p class="quiz-email-note" id="quizEmailNote"></p>' +
         '</div>';
+
+
+      // Email-my-results
+      var emailForm = document.getElementById('quizEmailForm');
+      if (emailForm && RESULTS_WORKER_URL.indexOf('YOUR-WORKER') === -1) {
+        emailForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var input = document.getElementById('quizEmail');
+          var note = document.getElementById('quizEmailNote');
+          var email = input.value.trim();
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+            note.textContent = 'Please enter a valid email address.';
+            input.focus();
+            return;
+          }
+          var btn = emailForm.querySelector('button');
+          btn.disabled = true;
+          btn.textContent = 'Sending\u2026';
+          note.textContent = '';
+          fetch(RESULTS_WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email, score: score, max: max,
+              tier: tier.label, headline: tier.headline, body: tier.body,
+              recs: tier.recs.map(function (r) { return { title: r[0], desc: r[1] }; })
+            })
+          }).then(function (res) {
+            if (!res.ok) throw new Error('send failed');
+            emailForm.innerHTML = '<p class="quiz-email-done">Sent. Check your inbox.</p>';
+          }).catch(function () {
+            btn.disabled = false;
+            btn.textContent = 'Email My Results';
+            note.textContent = 'Something went wrong. Please try again.';
+          });
+        });
+      } else if (emailForm) {
+        emailForm.style.display = 'none'; // worker not configured yet
+      }
 
       quizEl.hidden = true;
       resultEl.hidden = false;

@@ -922,6 +922,16 @@ footer {
 .quiz-recs li strong { color: var(--white); display: block; margin-bottom: 4px; }
 .quiz-recs li span { color: var(--gray-light); font-size: 15px; }
 .quiz-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.quiz-email { margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; }
+.quiz-email p { color: var(--gray); font-size: 15px; margin-bottom: 14px; }
+.quiz-email-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+.quiz-email-form input { flex: 1; min-width: 0; padding: 13px 16px; background: var(--dark-2); border: 1px solid var(--dark-3); border-radius: var(--radius); color: var(--white); font-family: var(--font); font-size: 14px; outline: none; transition: border-color var(--ease); }
+.quiz-email-form input::placeholder { color: var(--gray); }
+.quiz-email-form input:focus { border-color: var(--blue); }
+.quiz-email-form .btn { white-space: nowrap; }
+.quiz-email-note { min-height: 20px; font-size: 13px; margin-top: 10px; }
+.quiz-email-done { color: var(--white); font-weight: 600; }
+@media (max-width: 520px) { .quiz-email-form { flex-direction: column; } }
 
 /* Calculator */
 .calc-grid {
