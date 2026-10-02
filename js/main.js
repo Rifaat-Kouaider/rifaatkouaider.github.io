@@ -10,7 +10,7 @@
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.querySelector('.nav-links');
   const lockScroll = (lock) => {
-    // iOS Safari ignores overflow:hidden on body alone — html needs it too
+    // iOS Safari ignores overflow:hidden on body alone, so html needs it too
     document.body.style.overflow = lock ? 'hidden' : '';
     document.documentElement.style.overflow = lock ? 'hidden' : '';
   };
@@ -54,7 +54,7 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Staggered service cards — delay is cleared after the entrance so hover never lags
+  // Staggered service cards: delay is cleared after the entrance so hover never lags
   document.querySelectorAll('.service-card').forEach((card, i) => {
     const delay = i * 70;
     card.style.transitionDelay = delay + 'ms';
@@ -145,7 +145,7 @@
     var msg = '';
     if (from === 'quiz') {
       var recs = (params.get('recs') || '').split(' | ').filter(Boolean);
-      msg = 'Hi \u2014 I took the IT Health Check on your site and scored ' +
+      msg = 'Hi, I took the IT Health Check on your site and scored ' +
         params.get('score') + ' out of ' + params.get('max') + ' (' + params.get('tier') + ').';
       if (recs.length) {
         msg += '\n\nSuggested next steps from my results:\n' +
@@ -154,7 +154,7 @@
       msg += "\n\nI'd like to discuss what this means for my practice.";
     } else if (from === 'calc') {
       var total = parseFloat(params.get('total')) || 0;
-      msg = 'Hi \u2014 I ran the Cost of Doing Nothing calculator on your site. ' +
+      msg = 'Hi, I ran the Cost of Doing Nothing calculator on your site. ' +
         'My estimated annual cost: ' + money(total) +
         ' (about ' + money(Math.round(total / 12)) + '/month).' +
         '\n\nBreakdown:' +
