@@ -222,6 +222,8 @@
 
     function showResult() {
       var score = answers.reduce(function (a, b) { return a + b; }, 0);
+      var max = QUESTIONS.length * 3;
+      var pct = Math.round(score / max * 100);
       var tier = TIERS[0];
       for (var i = 0; i < TIERS.length; i++) {
         if (score >= TIERS[i].min) { tier = TIERS[i]; break; }
@@ -236,7 +238,10 @@
       resultEl.innerHTML =
         '<span class="quiz-tier">' + tier.label + '</span>' +
         '<h2>' + tier.headline + '</h2>' +
-        '<p class="quiz-score">You scored ' + score + ' out of ' + (QUESTIONS.length * 3) + '</p>' +
+        '<div class="quiz-score-wrap">' +
+        '<div class="quiz-score-big"><strong>' + score + '</strong><span>/' + max + '</span></div>' +
+        '<div class="quiz-score-bar"><div class="quiz-score-fill" style="width:' + pct + '%"></div></div>' +
+        '</div>' +
         '<p>' + tier.body + '</p>' +
         '<div class="quiz-recs"><h3>Recommended next steps</h3><ul>' + recs + '</ul></div>' +
         '<div class="quiz-actions">' +
