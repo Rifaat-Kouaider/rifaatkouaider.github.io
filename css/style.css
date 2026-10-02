@@ -741,20 +741,6 @@ footer {
   margin: 0;
 }
 
-/* ── Cursor glow ── */
-.cursor-glow {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(560px circle at var(--gx, -800px) var(--gy, -800px), rgba(27, 79, 255, 0.09), transparent 65%);
-  opacity: 0;
-  transition: opacity 0.7s ease;
-}
-.cursor-glow.is-active { opacity: 1; }
-@media (hover: none), (pointer: coarse) { .cursor-glow { display: none; } }
-@media (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } }
-
 /* ── Tools band (homepage) ── */
 .tools { padding: 120px 0; }
 .tools-grid {
