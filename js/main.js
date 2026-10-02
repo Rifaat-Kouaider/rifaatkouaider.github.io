@@ -134,6 +134,41 @@
   document.querySelectorAll('.stat-number[data-count]').forEach(el => statObserver.observe(el));
 
 
+  // ── Prefill contact form from tool results (?from=quiz|calc) ──
+  (function prefillContact() {
+    var params = new URLSearchParams(window.location.search);
+    var from = params.get('from');
+    if (!from) return;
+    var msgBox = document.querySelector('#contact-form textarea[name="message"]');
+    if (!msgBox) return;
+    var money = function (v) { return '$' + Number(v).toLocaleString('en-US'); };
+    var msg = '';
+    if (from === 'quiz') {
+      var recs = (params.get('recs') || '').split(' | ').filter(Boolean);
+      msg = 'Hi \u2014 I took the IT Health Check on your site and scored ' +
+        params.get('score') + ' out of ' + params.get('max') + ' (' + params.get('tier') + ').';
+      if (recs.length) {
+        msg += '\n\nSuggested next steps from my results:\n' +
+          recs.map(function (r) { return '\u2022 ' + r; }).join('\n');
+      }
+      msg += "\n\nI'd like to discuss what this means for my practice.";
+    } else if (from === 'calc') {
+      var total = parseFloat(params.get('total')) || 0;
+      msg = 'Hi \u2014 I ran the Cost of Doing Nothing calculator on your site. ' +
+        'My estimated annual cost: ' + money(total) +
+        ' (about ' + money(Math.round(total / 12)) + '/month).' +
+        '\n\nBreakdown:' +
+        '\n\u2022 Productivity drain: ' + money(params.get('drag')) +
+        '\n\u2022 Downtime losses: ' + money(params.get('down')) +
+        '\n\u2022 Estimated recoverable: ' + money(params.get('save')) +
+        '\n\nMy inputs: ' + params.get('staff') + ' staff \u00b7 ' + money(params.get('rate')) + '/hr \u00b7 ' +
+        params.get('hrs') + ' hrs lost per employee/month \u00b7 ' + params.get('events') + ' downtime events/yr \u00b7 ' +
+        params.get('evhrs') + ' hrs/event \u00b7 ' + money(params.get('revhr')) + ' revenue lost per downtime hour.' +
+        "\n\nI'd like to talk it through.";
+    }
+    if (msg) msgBox.value = msg;
+  })();
+
   // ── Footer year ──
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

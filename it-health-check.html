@@ -88,7 +88,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20261015"></script>
+  <script src="js/main.js?v=20261016"></script>
   <script>
   (function () {
     'use strict';
@@ -240,7 +240,13 @@
         '<p>' + tier.body + '</p>' +
         '<div class="quiz-recs"><h3>Recommended next steps</h3><ul>' + recs + '</ul></div>' +
         '<div class="quiz-actions">' +
-          '<a href="index.html#contact" class="btn btn-primary">Discuss Your Results</a>' +
+          (function () {
+        var qp = new URLSearchParams({
+          from: 'quiz', score: score, max: max, tier: tier.label,
+          recs: tier.recs.map(function (r) { return r[0]; }).join(' | ')
+        });
+        return '<a href="index.html?' + qp.toString() + '#contact" class="btn btn-primary">Discuss Your Results</a>';
+      })() +
           '<button type="button" class="btn btn-secondary" id="quizRetake">Retake the Check</button>' +
         '</div>';
 

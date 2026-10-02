@@ -109,7 +109,7 @@
               <p>Estimated recoverable each year with proactively managed IT — based on the industry benchmark of ~70% reduction in friction and downtime.</p>
             </div>
             <div class="calc-cta">
-              <a href="index.html#contact" class="btn btn-primary">Talk It Through</a>
+              <a href="index.html#contact" class="btn btn-primary" id="talkBtn">Talk It Through</a>
               <a href="it-health-check.html" class="btn btn-secondary">Take the Health Check</a>
             </div>
           </div>
@@ -132,7 +132,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20261015"></script>
+  <script src="js/main.js?v=20261016"></script>
   <script>
   (function () {
     'use strict';
@@ -178,6 +178,14 @@
       document.getElementById('resSave').textContent = money(Math.round(save));
       document.getElementById('resPer').textContent =
         'about ' + money(Math.round(total / 12)) + ' per month';
+
+      var qp = new URLSearchParams({
+        from: 'calc', staff: val('inStaff'), rate: val('inRate'), hrs: val('inHours'),
+        events: val('inEvents'), evhrs: val('inEventHours'), revhr: val('inRevenue'),
+        drag: Math.round(drag), down: Math.round(down),
+        total: Math.round(total), save: Math.round(save)
+      });
+      document.getElementById('talkBtn').href = 'index.html?' + qp.toString() + '#contact';
     }
 
     FIELDS.forEach(function (f) {
