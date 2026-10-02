@@ -134,6 +134,28 @@
   document.querySelectorAll('.stat-number[data-count]').forEach(el => statObserver.observe(el));
 
 
+  // ── Cursor glow (fine pointers only, respects reduced motion) ──
+  const glow = document.getElementById('cursorGlow');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (glow && finePointer && !reduceMotion) {
+    let gx = -800, gy = -800, tx = -800, ty = -800, raf = null;
+    const render = () => {
+      gx += (tx - gx) * 0.075;
+      gy += (ty - gy) * 0.075;
+      glow.style.setProperty('--gx', Math.round(gx) + 'px');
+      glow.style.setProperty('--gy', Math.round(gy) + 'px');
+      raf = (Math.abs(tx - gx) > 0.4 || Math.abs(ty - gy) > 0.4) ? requestAnimationFrame(render) : null;
+    };
+    window.addEventListener('mousemove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      glow.classList.add('is-active');
+      if (!raf) raf = requestAnimationFrame(render);
+    }, { passive: true });
+    document.documentElement.addEventListener('mouseleave', () => {
+      glow.classList.remove('is-active');
+    });
+  }
+
   // ── Footer year ──
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

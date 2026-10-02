@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IT Health Check | Rifaat Kouaider</title>
+  <meta name="description" content="A 2-minute IT health check for medical practices — answer 7 questions and get an honest read on your technology, plus what to fix first.">
+  <meta name="author" content="Rifaat Kouaider">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1B4FFF">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Social -->
+  <meta property="og:title" content="IT Health Check | Rifaat Kouaider">
+  <meta property="og:description" content="A 2-minute IT health check for medical practices — where does your technology stand?">
+  <meta property="og:url" content="https://kouaider.com/it-health-check.html">
+  <meta property="og:image" content="https://kouaider.com/og-image.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261011">
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Rifaat<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <span class="section-tag">Interactive Tool</span>
+        <h1>IT Health Check</h1>
+        <p>Seven questions, about two minutes. Get an honest read on where your practice's technology stands — and what to fix first.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="tool-shell">
+        <div id="quiz">
+          <div class="quiz-progress" role="progressbar" aria-label="Quiz progress">
+            <div class="quiz-progress-bar" id="quizBar"></div>
+          </div>
+          <p class="quiz-count" id="quizCount"></p>
+          <div class="quiz-card quiz-enter" id="quizCard"></div>
+          <button class="quiz-back" id="quizBack" type="button" hidden>&larr; Back</button>
+        </div>
+        <div id="quizResult" class="quiz-card quiz-result" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; <span id="year">2026</span> Rifaat Kouaider</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rifaatk/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/Rifaat-Kouaider" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="mailto:rifaat@kouaider.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=20261011"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var QUESTIONS = [
+      {
+        q: 'How does your practice handle IT issues today?',
+        options: [
+          { t: 'We have in-house IT staff', s: 3 },
+          { t: 'A managed IT provider handles it', s: 2 },
+          { t: 'We call someone when things break', s: 1 },
+          { t: "Whoever's free figures it out", s: 0 }
+        ]
+      },
+      {
+        q: 'When was your last HIPAA security risk assessment?',
+        options: [
+          { t: 'Within the last 12 months', s: 3 },
+          { t: '1\u20132 years ago', s: 2 },
+          { t: 'More than 2 years ago', s: 1 },
+          { t: "Never \u2014 or I'm not sure", s: 0 }
+        ]
+      },
+      {
+        q: 'How often does technology disrupt patient care?',
+        options: [
+          { t: 'Rarely \u2014 systems just work', s: 3 },
+          { t: 'A few times a year', s: 2 },
+          { t: 'About once a month', s: 1 },
+          { t: 'Weekly or more', s: 0 }
+        ]
+      },
+      {
+        q: 'If your EHR server failed right now, how confident are you in your backups?',
+        options: [
+          { t: 'Very \u2014 we test restores regularly', s: 3 },
+          { t: 'Fairly \u2014 backups run every day', s: 2 },
+          { t: "Not very \u2014 I'm not sure they'd work", s: 1 },
+          { t: "We don't have reliable backups", s: 0 }
+        ]
+      },
+      {
+        q: 'How do patients reach you after hours?',
+        options: [
+          { t: 'A modern system that routes every call', s: 3 },
+          { t: 'Voicemail we check the next morning', s: 2 },
+          { t: 'An old phone tree \u2014 calls get lost', s: 1 },
+          { t: "Honestly, I'm not sure", s: 0 }
+        ]
+      },
+      {
+        q: 'Do you have a plan for replacing aging computers and servers?',
+        options: [
+          { t: 'Yes \u2014 a budgeted lifecycle plan', s: 3 },
+          { t: 'A rough idea, but not budgeted', s: 2 },
+          { t: 'We replace things when they die', s: 1 },
+          { t: 'No plan at all', s: 0 }
+        ]
+      },
+      {
+        q: 'How would you describe your cybersecurity today?',
+        options: [
+          { t: 'Strong \u2014 MFA, training, monitoring', s: 3 },
+          { t: 'Decent, with some gaps', s: 2 },
+          { t: "Worried \u2014 we know we're exposed", s: 1 },
+          { t: "We've already had an incident", s: 0 }
+        ]
+      }
+    ];
+
+    var TIERS = [
+      {
+        min: 15,
+        label: 'Solid Foundation',
+        headline: 'You\u2019re ahead of most practices.',
+        body: 'Your technology is in good shape \u2014 the opportunity now is staying ahead: tightening what\u2019s working, planning what\u2019s next, and using newer tools to take admin load off your staff.',
+        recs: [
+          ['Stay proactive', 'Ongoing monitoring and maintenance so small issues never become outages.'],
+          ['Plan the roadmap', 'A 2\u20133 year technology plan with real budgets \u2014 no surprises.'],
+          ['Work smarter', 'AI tools for phones, scheduling, and documentation to cut busywork.']
+        ]
+      },
+      {
+        min: 8,
+        label: 'At Risk',
+        headline: 'The basics are there \u2014 but gaps are forming.',
+        body: 'Nothing is on fire, yet. The risk is the slow kind: untested backups, aging hardware, and security gaps that compound quietly until one bad day makes them expensive.',
+        recs: [
+          ['HIPAA security risk assessment', 'Find the compliance and security gaps before an auditor \u2014 or an attacker \u2014 does.'],
+          ['Backup & recovery testing', 'Prove your backups actually restore, and document the plan.'],
+          ['Lifecycle planning', 'Replace aging systems on your schedule instead of theirs.']
+        ]
+      },
+      {
+        min: 0,
+        label: 'Needs Attention',
+        headline: 'Your technology is likely costing you every week.',
+        body: 'Between downtime, workarounds, and security exposure, reactive IT is taxing your staff and putting patient care at risk. The good news: this is very fixable, and the payoff is fast.',
+        recs: [
+          ['Full IT assessment', 'A clear-eyed inventory of systems, risks, and quick wins.'],
+          ['Stabilize the essentials', 'Backups, network, and phones brought up to a reliable baseline.'],
+          ['Ongoing support', 'Someone watching your systems so you can focus on patients.']
+        ]
+      }
+    ];
+
+    var answers = [];
+    var current = 0;
+    var quizEl = document.getElementById('quiz');
+    var card = document.getElementById('quizCard');
+    var bar = document.getElementById('quizBar');
+    var count = document.getElementById('quizCount');
+    var backBtn = document.getElementById('quizBack');
+    var resultEl = document.getElementById('quizResult');
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      count.textContent = 'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
+      bar.style.width = (current / QUESTIONS.length * 100) + '%';
+      backBtn.hidden = current === 0;
+
+      var html = '<p class="quiz-q">' + q.q + '</p>';
+      q.options.forEach(function (opt, i) {
+        html += '<button type="button" class="quiz-opt" data-i="' + i + '">' + opt.t + '</button>';
+      });
+      card.innerHTML = html;
+      card.classList.remove('quiz-enter');
+      void card.offsetWidth; /* restart entrance animation */
+      card.classList.add('quiz-enter');
+    }
+
+    function showResult() {
+      var score = answers.reduce(function (a, b) { return a + b; }, 0);
+      var tier = TIERS[0];
+      for (var i = 0; i < TIERS.length; i++) {
+        if (score >= TIERS[i].min) { tier = TIERS[i]; break; }
+      }
+      bar.style.width = '100%';
+      count.textContent = 'Your results';
+
+      var recs = tier.recs.map(function (r) {
+        return '<li><strong>' + r[0] + '</strong><span>' + r[1] + '</span></li>';
+      }).join('');
+
+      resultEl.innerHTML =
+        '<span class="quiz-tier">' + tier.label + '</span>' +
+        '<h2>' + tier.headline + '</h2>' +
+        '<p class="quiz-score">You scored ' + score + ' out of ' + (QUESTIONS.length * 3) + '</p>' +
+        '<p>' + tier.body + '</p>' +
+        '<div class="quiz-recs"><h3>Recommended next steps</h3><ul>' + recs + '</ul></div>' +
+        '<div class="quiz-actions">' +
+          '<a href="index.html#contact" class="btn btn-primary">Discuss Your Results</a>' +
+          '<button type="button" class="btn btn-secondary" id="quizRetake">Retake the Check</button>' +
+        '</div>';
+
+      quizEl.hidden = true;
+      resultEl.hidden = false;
+      resultEl.classList.add('quiz-enter');
+      document.getElementById('quizRetake').addEventListener('click', function () {
+        answers = [];
+        current = 0;
+        resultEl.hidden = true;
+        resultEl.classList.remove('quiz-enter');
+        quizEl.hidden = false;
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    card.addEventListener('click', function (e) {
+      var btn = e.target.closest('.quiz-opt');
+      if (!btn) return;
+      answers[current] = QUESTIONS[current].options[parseInt(btn.dataset.i, 10)].s;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    });
+
+    backBtn.addEventListener('click', function () {
+      if (current > 0) {
+        current--;
+        answers.pop();
+        renderQuestion();
+      }
+    });
+
+    renderQuestion();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cost of Doing Nothing Calculator | Rifaat Kouaider</title>
+  <meta name="description" content="What is IT friction and downtime really costing your medical practice each year? Run the numbers with this free calculator.">
+  <meta name="author" content="Rifaat Kouaider">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1B4FFF">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Social -->
+  <meta property="og:title" content="Cost of Doing Nothing Calculator | Rifaat Kouaider">
+  <meta property="og:description" content="What is IT friction and downtime really costing your practice each year? Run the numbers.">
+  <meta property="og:url" content="https://kouaider.com/roi-calculator.html">
+  <meta property="og:image" content="https://kouaider.com/og-image.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261011">
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Rifaat<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <span class="section-tag">Interactive Tool</span>
+        <h1>The Cost of Doing Nothing</h1>
+        <p>Slow systems, daily workarounds, the occasional outage — it all has a price. Move the sliders to match your practice and see the annual total.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="tool-shell wide">
+        <div class="calc-grid">
+          <div class="calc-panel">
+            <div class="calc-field">
+              <div class="calc-label"><label for="inStaff">Staff members</label><output id="outStaff" for="inStaff">15</output></div>
+              <input type="range" id="inStaff" min="1" max="200" step="1" value="15">
+              <p class="hint">Everyone whose work slows down when systems do.</p>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="inRate">Avg. cost per employee / hour</label><output id="outRate" for="inRate">$55</output></div>
+              <input type="range" id="inRate" min="25" max="150" step="5" value="55">
+              <p class="hint">Fully loaded — wages, benefits, overhead.</p>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="inHours">Hours lost per employee / month</label><output id="outHours" for="inHours">4</output></div>
+              <input type="range" id="inHours" min="0" max="20" step="0.5" value="4">
+              <p class="hint">Frozen screens, slow logins, rebooting, waiting on &ldquo;the IT guy.&rdquo;</p>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="inEvents">Unplanned downtime events / year</label><output id="outEvents" for="inEvents">6</output></div>
+              <input type="range" id="inEvents" min="0" max="50" step="1" value="6">
+              <p class="hint">Internet outages, server failures, EHR or phones going down.</p>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="inEventHours">Avg. hours per downtime event</label><output id="outEventHours" for="inEventHours">3</output></div>
+              <input type="range" id="inEventHours" min="0" max="24" step="0.5" value="3">
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="inRevenue">Revenue lost per downtime hour</label><output id="outRevenue" for="inRevenue">$2,000</output></div>
+              <input type="range" id="inRevenue" min="0" max="25000" step="250" value="2000">
+              <p class="hint">Cancelled and delayed visits while systems are down.</p>
+            </div>
+          </div>
+
+          <div class="calc-results" aria-live="polite">
+            <h3>Your annual cost</h3>
+            <div class="calc-row"><span>Productivity drain</span><span id="resDrag">$39,600</span></div>
+            <div class="calc-row"><span>Downtime losses</span><span id="resDown">$36,000</span></div>
+            <div class="calc-total">
+              <div class="calc-row"><span>Total</span></div>
+              <div class="calc-total-value" id="resTotal">$75,600</div>
+              <p class="calc-per" id="resPer">about $6,300 per month</p>
+            </div>
+            <div class="calc-save">
+              <strong id="resSave">$52,920</strong>
+              <p>Estimated recoverable each year with proactively managed IT — based on the industry benchmark of ~70% reduction in friction and downtime.</p>
+            </div>
+            <div class="calc-cta">
+              <a href="index.html#contact" class="btn btn-primary">Talk It Through</a>
+              <a href="it-health-check.html" class="btn btn-secondary">Take the Health Check</a>
+            </div>
+          </div>
+        </div>
+        <p class="calc-note">Estimates only, computed live from your inputs: productivity drain = staff &times; hourly cost &times; hours lost per month &times; 12; downtime = events per year &times; hours per event &times; revenue lost per hour. The 70% recovery figure is an industry benchmark for practices moving from reactive to proactively managed IT — your results will vary.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; <span id="year">2026</span> Rifaat Kouaider</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rifaatk/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/Rifaat-Kouaider" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="mailto:rifaat@kouaider.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=20261011"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var FIELDS = [
+      { id: 'inStaff',      out: 'outStaff',      fmt: function (v) { return v; } },
+      { id: 'inRate',       out: 'outRate',       fmt: money },
+      { id: 'inHours',      out: 'outHours',      fmt: function (v) { return v; } },
+      { id: 'inEvents',     out: 'outEvents',     fmt: function (v) { return v; } },
+      { id: 'inEventHours', out: 'outEventHours', fmt: function (v) { return v; } },
+      { id: 'inRevenue',    out: 'outRevenue',    fmt: money }
+    ];
+
+    function money(v) {
+      return '$' + Number(v).toLocaleString('en-US');
+    }
+
+    function val(id) {
+      return parseFloat(document.getElementById(id).value);
+    }
+
+    function update() {
+      var staff = val('inStaff'),
+          rate = val('inRate'),
+          hrsMo = val('inHours'),
+          events = val('inEvents'),
+          hrsEv = val('inEventHours'),
+          revHr = val('inRevenue');
+
+      FIELDS.forEach(function (f) {
+        var el = document.getElementById(f.id);
+        document.getElementById(f.out).textContent = f.fmt(el.value);
+      });
+
+      var drag = staff * rate * hrsMo * 12;
+      var down = events * hrsEv * revHr;
+      var total = drag + down;
+      var save = total * 0.70;
+
+      document.getElementById('resDrag').textContent = money(Math.round(drag));
+      document.getElementById('resDown').textContent = money(Math.round(down));
+      document.getElementById('resTotal').textContent = money(Math.round(total));
+      document.getElementById('resSave').textContent = money(Math.round(save));
+      document.getElementById('resPer').textContent =
+        'about ' + money(Math.round(total / 12)) + ' per month';
+    }
+
+    FIELDS.forEach(function (f) {
+      document.getElementById(f.id).addEventListener('input', update);
+    });
+
+    update();
+  })();
+  </script>
+</body>
+</html>
