@@ -56,7 +56,13 @@
       <header class="post-header">
         <h1>Welcome: what this blog is for</h1>
         <p class="post-meta">October 2, 2026 &middot; 2 min read</p>
-        <button class="listen-btn" id="listenBtn" aria-pressed="false"><i class="fa fa-volume-up"></i><span>Listen to this article</span></button>
+        <div class="audio-player" id="audioPlayer">
+          <span class="audio-label">Listen</span>
+          <button class="audio-play" id="audioPlay" aria-label="Play article audio"><i class="fa fa-play"></i></button>
+          <div class="audio-track" id="audioTrack"><div class="audio-fill" id="audioFill"></div></div>
+          <span class="audio-time" id="audioTime">0:00</span>
+          <audio id="articleAudio" preload="metadata" src="audio/welcome.mp3"></audio>
+        </div>
       </header>
       <div class="post-body">
         <p>After years of keeping medical practices' systems running, migrating their EMRs, and untangling their phones, I've noticed something: the same questions come up everywhere. Different cities, different specialties, same headaches.</p>

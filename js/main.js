@@ -170,70 +170,33 @@
   })();
 
 
-  // ── Blog: listen to article (browser text-to-speech) ──
+  // ── Blog: article audio player ──
   (function () {
-    var btn = document.getElementById('listenBtn');
-    var body = document.querySelector('.post-body');
-    if (!btn || !body || !('speechSynthesis' in window)) {
-      if (btn) btn.style.display = 'none';
-      return;
-    }
-    var synth = window.speechSynthesis;
-    var chunks = [], idx = 0, state = 'idle', voice = null; // idle | playing | paused
-
-    function pickVoice() {
-      var vs = synth.getVoices().filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf('en') === 0; });
-      voice = vs.find(function (v) { return /google us english/i.test(v.name); })
-        || vs.find(function (v) { return /natural|neural|samantha|zira|david|mark/i.test(v.name); })
-        || vs.find(function (v) { return v.lang.toLowerCase() === 'en-us'; })
-        || vs[0] || null;
-    }
-    pickVoice();
-    if (typeof synth.onvoiceschanged !== 'undefined') synth.onvoiceschanged = pickVoice;
-
-    function makeChunks() {
-      var text = body.innerText.replace(/\s+/g, ' ').trim();
-      var sentences = text.match(/[^.!?]+[.!?]+["']?|[^.!?]+$/g) || [text];
-      var out = [], cur = '';
-      sentences.forEach(function (s) {
-        s = s.trim();
-        if (!s) return;
-        if (cur && (cur + ' ' + s).length > 240) { out.push(cur); cur = s; }
-        else cur = cur ? cur + ' ' + s : s;
-      });
-      if (cur) out.push(cur);
-      return out;
-    }
-
-    function setUI() {
-      var label = btn.querySelector('span');
-      var icon = btn.querySelector('.fa');
-      btn.classList.toggle('is-playing', state === 'playing');
-      btn.setAttribute('aria-pressed', state === 'playing' ? 'true' : 'false');
-      label.textContent = state === 'idle' ? 'Listen to this article' : (state === 'playing' ? 'Pause' : 'Resume');
-      icon.className = 'fa ' + (state === 'playing' ? 'fa-pause' : 'fa-volume-up');
-    }
-
-    function speakChunk() {
-      if (idx >= chunks.length) { stop(); return; }
-      var u = new SpeechSynthesisUtterance(chunks[idx]);
-      if (voice) u.voice = voice;
-      u.rate = 1;
-      u.onend = function () { idx++; if (state === 'playing') speakChunk(); };
-      u.onerror = function () { stop(); };
-      synth.speak(u);
-    }
-
-    function stop() { synth.cancel(); state = 'idle'; idx = 0; setUI(); }
-
-    btn.addEventListener('click', function () {
-      if (state === 'playing') { synth.pause(); state = 'paused'; }
-      else if (state === 'paused') { synth.resume(); state = 'playing'; }
-      else { synth.cancel(); chunks = makeChunks(); idx = 0; state = 'playing'; speakChunk(); }
-      setUI();
+    var player = document.getElementById('audioPlayer');
+    if (!player) return;
+    var audio = document.getElementById('articleAudio');
+    var playBtn = document.getElementById('audioPlay');
+    var track = document.getElementById('audioTrack');
+    var fill = document.getElementById('audioFill');
+    var time = document.getElementById('audioTime');
+    var icon = playBtn.querySelector('.fa');
+    function fmt(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+    function update() { icon.className = 'fa ' + (audio.paused ? 'fa-play' : 'fa-pause'); }
+    playBtn.addEventListener('click', function () { if (audio.paused) audio.play(); else audio.pause(); });
+    audio.addEventListener('play', update);
+    audio.addEventListener('pause', update);
+    audio.addEventListener('ended', update);
+    audio.addEventListener('loadedmetadata', function () { time.textContent = '0:00 / ' + fmt(audio.duration); });
+    audio.addEventListener('timeupdate', function () {
+      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
     });
-    window.addEventListener('pagehide', function () { synth.cancel(); });
-    setUI();
+    audio.addEventListener('error', function () { player.style.display = 'none'; });
+    track.addEventListener('click', function (e) {
+      var r = track.getBoundingClientRect();
+      if (audio.duration) audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+    });
+    update();
   })();
 
   // ── Footer year ──

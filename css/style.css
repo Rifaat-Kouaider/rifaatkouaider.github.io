@@ -1058,16 +1058,22 @@ footer {
   margin-bottom: 18px;
 }
 .post-meta { color: var(--gray); font-size: 14px; letter-spacing: 1px; }
-.listen-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 20px; padding: 11px 22px;
-  background: transparent; border: 1px solid rgba(27,79,255,0.35); border-radius: 999px;
-  color: var(--white); font-family: var(--font); font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.audio-player {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 24px; padding: 14px 18px;
+  background: var(--dark-2); border: 1px solid rgba(27,79,255,0.22); border-radius: 12px;
 }
-.listen-btn:hover { border-color: var(--blue); box-shadow: 0 0 18px rgba(27,79,255,0.25); }
-.listen-btn .fa { color: var(--blue); font-size: 15px; }
-.listen-btn.is-playing { border-color: var(--blue); box-shadow: 0 0 18px rgba(27,79,255,0.25); }
+.audio-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); }
+.audio-play {
+  width: 42px; height: 42px; flex: none; border: none; border-radius: 50%;
+  background: var(--blue); color: #fff; font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.audio-play:hover { box-shadow: 0 0 18px rgba(27,79,255,0.45); transform: scale(1.05); }
+.audio-track { flex: 1; height: 6px; background: rgba(255,255,255,0.08); border-radius: 99px; cursor: pointer; }
+.audio-fill { height: 100%; width: 0; background: var(--blue); border-radius: 99px; }
+.audio-time { font-size: 13px; color: var(--gray); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .post-body { font-size: 18px; line-height: 1.85; color: var(--off-white); }
 .post-body p { margin-bottom: 28px; }
 .post-body h2 {
