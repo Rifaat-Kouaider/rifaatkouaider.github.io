@@ -288,11 +288,7 @@
           fetch(RESULTS_WORKER_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: email, score: score, max: max,
-              tier: tier.label, headline: tier.headline, body: tier.body,
-              recs: tier.recs.map(function (r) { return { title: r[0], desc: r[1] }; })
-            })
+            body: JSON.stringify({ email: email, score: score })
           }).then(function (res) {
             if (!res.ok) throw new Error('send failed');
             emailForm.innerHTML = '<p class="quiz-email-done">Sent. Check your inbox.</p>';
