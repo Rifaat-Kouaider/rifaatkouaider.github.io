@@ -906,7 +906,12 @@ footer {
   letter-spacing: -1px;
   margin-bottom: 8px;
 }
-.quiz-score { color: var(--gray); font-size: 15px; margin-bottom: 24px; }
+.quiz-score-wrap { margin: 0 auto 30px; max-width: 340px; }
+.quiz-score-big { font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 16px; }
+.quiz-score-big strong { color: var(--blue); }
+.quiz-score-big span { font-size: 26px; color: var(--gray); font-weight: 700; }
+.quiz-score-bar { height: 6px; background: var(--dark-2); border-radius: 3px; overflow: hidden; }
+.quiz-score-fill { height: 100%; background: var(--blue); border-radius: 3px; transition: width 0.8s ease; }
 .quiz-result > p {
   color: var(--gray-light);
   line-height: 1.75;
