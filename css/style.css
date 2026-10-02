@@ -491,7 +491,7 @@ ul { list-style: none; }
 .service-card-cta.service-card h3,
 .service-card-cta.service-card p { color: #fff; }
 .service-card-cta.service-card .service-icon,
-.service-card-cta.service-card:hover .service-icon { background: transparent; }
+.service-card-cta.service-card:hover .service-icon { background: rgba(0, 0, 0, 0.22); }
 .service-card-cta.service-card .service-icon i { color: #fff; }
 .card-cta {
   display: inline-flex;
