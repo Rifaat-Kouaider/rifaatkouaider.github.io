@@ -893,7 +893,7 @@ footer {
   margin-bottom: 8px;
 }
 .quiz-score-wrap { margin: 0 auto 30px; max-width: 340px; }
-.quiz-score-big { font-size: 64px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 16px; color: var(--white); }
+.quiz-score-big { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1; margin: 34px 0 16px; color: var(--white); }
 .quiz-score-bar { height: 6px; background: var(--dark-2); border-radius: 3px; overflow: hidden; }
 .quiz-score-fill { height: 100%; background: var(--blue); border-radius: 3px; transition: width 0.8s ease; }
 .quiz-result > p {
