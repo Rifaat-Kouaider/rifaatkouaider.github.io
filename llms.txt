@@ -16,6 +16,17 @@
 - [Technology Roadmaps](https://kouaider.com/#services): Long-term technology planning bridging clinical operations, compliance standards, and business objectives.
 - [Vendor & Third-Party Management](https://kouaider.com/#services): Vendor relationships, service contracts, and escalations handled on the practice's behalf.
 
+## Interactive Tools
+
+- [IT Health Check](https://kouaider.com/it-health-check.html): 7-question assessment giving medical practices an honest read on their technology, with scored tiers and recommendations. Results can be emailed.
+- [Cost of Doing Nothing](https://kouaider.com/roi-calculator.html): ROI calculator estimating what IT friction and downtime cost a practice per year.
+- [Ransomware Response Sheet](https://kouaider.com/ransomware-response.html): One-page emergency sheet — the first five calls to make when ransomware hits a practice. Printable PDF: https://kouaider.com/ransomware-response-sheet.pdf
+
+## Blog & Podcast
+
+- [Blog](https://kouaider.com/blog/): Weekly plainspoken takes on healthcare IT, cybersecurity, and AI for medical practices.
+- [Kouaider Briefing](https://worker-1.rifaat-kouaider.workers.dev/feed): Weekly podcast — each blog post as a short narrated episode.
+
 ## About
 
 Rifaat Kouaider is a Computer Engineer and healthcare technology consultant with over a decade of hands-on experience spanning IT infrastructure, systems engineering, and software product development. As Product Owner & Partner at HealthSpaces, he has worked with medical practices across the United States to design, implement, and optimize technology systems.
