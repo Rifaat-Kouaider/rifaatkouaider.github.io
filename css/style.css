@@ -1124,6 +1124,7 @@ footer {
 
 /* ── Ransomware response sheet ── */
 .rp-hero .btn .fa { margin-right: 8px; }
+.rp-hero .no-print { margin-top: 30px; }
 .container-narrow { max-width: 760px; }
 .rp-sheet { padding: 20px 0 90px; }
 .rp-calls { list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: column; gap: 18px; }
