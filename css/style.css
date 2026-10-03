@@ -1230,14 +1230,31 @@ body::before {
 
 /* ── Navbar: frosted always (Apple-style) ── */
 #navbar {
-  background: rgba(8,8,11,0.55);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  backdrop-filter: blur(24px) saturate(160%);
+  background: transparent;
   border-bottom: none;
   padding: 18px 0;
 }
-#navbar::before { display: none; }
+/* Frost lives on a pseudo-layer, NOT on #navbar: backdrop-filter there would
+   trap the fullscreen mobile menu (a fixed-position child) inside the nav. */
+#navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8,8,11,0.55);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
+}
 #navbar.scrolled { padding: 14px 0; border-bottom: none; }
+@media (max-width: 768px) {
+  .nav-links {
+    background: rgba(8,8,11,0.88);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+    backdrop-filter: blur(28px) saturate(150%);
+  }
+}
 .nav-cta {
   border-radius: 10px;
   background: linear-gradient(180deg, #2E5BFF 0%, #1B4FFF 100%);
