@@ -1121,3 +1121,51 @@ footer {
   .post { padding: 150px 24px 90px; }
   .post-body { font-size: 17px; }
 }
+
+/* ── Ransomware response sheet ── */
+.rp-hero .btn .fa { margin-right: 8px; }
+.container-narrow { max-width: 760px; }
+.rp-sheet { padding: 20px 0 90px; }
+.rp-calls { list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.rp-call {
+  display: flex; gap: 20px; align-items: flex-start;
+  background: var(--dark-2); border: 1px solid rgba(27,79,255,0.18);
+  border-radius: var(--radius); padding: 26px 28px;
+}
+.rp-num {
+  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--blue); color: #fff;
+  font-size: 18px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.rp-call h3 { font-size: 19px; margin: 4px 0 8px; letter-spacing: -0.3px; }
+.rp-call p { color: var(--gray-light); font-size: 15.5px; line-height: 1.7; margin: 0; }
+.rp-call p strong { color: var(--white); }
+.rp-dont {
+  border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius);
+  padding: 26px 28px; margin-bottom: 40px; background: rgba(255,255,255,0.02);
+}
+.rp-dont h3 { font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); margin: 0 0 16px; }
+.rp-dont ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.rp-dont li { color: var(--gray-light); font-size: 15.5px; line-height: 1.65; padding-left: 26px; position: relative; }
+.rp-dont li::before { content: '\2715'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+.rp-dont li strong { color: var(--white); }
+.rp-after h3 { font-size: 22px; letter-spacing: -0.5px; margin: 0 0 12px; }
+.rp-after p { color: var(--gray-light); font-size: 16px; line-height: 1.75; margin: 0 0 16px; }
+.rp-disclaimer { font-size: 13.5px !important; color: var(--gray) !important; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px !important; }
+.rp-cta { text-align: center; margin-top: 56px; padding: 44px 32px; background: var(--blue-glow); border: 1px solid rgba(27,79,255,0.2); border-radius: var(--radius); }
+.rp-cta h3 { font-size: 24px; letter-spacing: -0.5px; margin: 0 0 10px; }
+.rp-cta p { color: var(--gray-light); margin: 0 0 24px; }
+
+@media print {
+  nav, footer, .no-print { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  .tool-hero { padding: 24px 0 !important; }
+  .tool-hero h1, .rp-call h3, .rp-dont h3, .rp-after h3 { color: #111 !important; }
+  .tool-hero p, .rp-call p, .rp-dont li, .rp-after p { color: #333 !important; }
+  .rp-call p strong, .rp-dont li strong { color: #111 !important; }
+  .rp-call, .rp-dont { background: #fff !important; border: 1px solid #ccc !important; break-inside: avoid; box-shadow: none !important; }
+  .rp-sheet { padding: 0 0 20px !important; }
+  .rp-disclaimer { color: #666 !important; }
+  a { color: #111 !important; text-decoration: none !important; }
+}
