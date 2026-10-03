@@ -57,7 +57,7 @@
         <span class="section-tag">Emergency Sheet</span>
         <h1>Ransomware hit your practice.<br>Do this first.</h1>
         <p>Breathe. Then work the list: five calls, in order. Print this page and tape it inside your server room door.</p>
-        <p class="no-print"><button class="btn btn-secondary" id="pdfBtn"><i class="fa fa-print"></i> Print / Save as PDF</button></p>
+        <p class="no-print"><button class="btn btn-secondary" id="pdfBtn"><i class="fa fa-download"></i> Download PDF</button></p>
       </div>
     </section>
 
@@ -139,7 +139,7 @@
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
       <button class="modal-close" id="leadClose" aria-label="Close">&times;</button>
       <h3 id="leadTitle">Get the PDF</h3>
-      <p>Enter your email and the printable version opens right away.</p>
+      <p>Enter your email and the download starts right away.</p>
       <form id="leadForm" novalidate>
         <input type="email" id="leadEmail" placeholder="you@practice.com" required autocomplete="email">
         <button type="submit" class="btn btn-primary" id="leadSubmit">Send me the PDF</button>
@@ -194,7 +194,12 @@
         .then(function (res) {
           if (!res.ok) throw new Error((res.d && res.d.error) || 'Something went wrong.');
           close();
-          window.print();
+          var a = document.createElement('a');
+          a.href = 'ransomware-response-sheet.pdf';
+          a.download = 'ransomware-response-sheet.pdf';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
         })
         .catch(function (err) {
           note(err.message || 'Something went wrong. Please try again.', true);
