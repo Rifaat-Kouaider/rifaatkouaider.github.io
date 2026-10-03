@@ -191,7 +191,12 @@
       if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
       time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
     });
-    audio.addEventListener('error', function () { player.style.display = 'none'; });
+    audio.addEventListener('error', function () {
+      time.textContent = 'Audio unavailable';
+      playBtn.disabled = true;
+      playBtn.style.opacity = '0.4';
+      playBtn.style.cursor = 'default';
+    });
     track.addEventListener('click', function (e) {
       var r = track.getBoundingClientRect();
       if (audio.duration) audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
