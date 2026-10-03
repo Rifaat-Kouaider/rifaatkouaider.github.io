@@ -169,6 +169,41 @@
     if (msg) msgBox.value = msg;
   })();
 
+
+  // ── Blog: article audio player ──
+  (function () {
+    var player = document.getElementById('audioPlayer');
+    if (!player) return;
+    var audio = document.getElementById('articleAudio');
+    var playBtn = document.getElementById('audioPlay');
+    var track = document.getElementById('audioTrack');
+    var fill = document.getElementById('audioFill');
+    var time = document.getElementById('audioTime');
+    var icon = playBtn.querySelector('.fa');
+    function fmt(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+    function update() { icon.className = 'fa ' + (audio.paused ? 'fa-play' : 'fa-pause'); }
+    playBtn.addEventListener('click', function () { if (audio.paused) audio.play(); else audio.pause(); });
+    audio.addEventListener('play', update);
+    audio.addEventListener('pause', update);
+    audio.addEventListener('ended', update);
+    audio.addEventListener('loadedmetadata', function () { time.textContent = '0:00 / ' + fmt(audio.duration); });
+    audio.addEventListener('timeupdate', function () {
+      if (audio.duration) fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      time.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    });
+    audio.addEventListener('error', function () {
+      time.textContent = 'Audio unavailable';
+      playBtn.disabled = true;
+      playBtn.style.opacity = '0.4';
+      playBtn.style.cursor = 'default';
+    });
+    track.addEventListener('click', function (e) {
+      var r = track.getBoundingClientRect();
+      if (audio.duration) audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+    });
+    update();
+  })();
+
   // ── Footer year ──
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
