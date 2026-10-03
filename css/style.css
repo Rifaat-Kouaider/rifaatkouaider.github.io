@@ -1157,8 +1157,16 @@ footer {
 .rp-cta h3 { font-size: 24px; letter-spacing: -0.5px; margin: 0 0 10px; }
 .rp-cta p { color: var(--gray-light); margin: 0 0 24px; }
 
+.print-only { display: none; }
+
 @media print {
   nav, footer, .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .print-brand { display: flex !important; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #1B4FFF; padding-bottom: 10px; margin-bottom: 22px; }
+  .print-logo { font-family: 'Inter', Arial, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; color: #111 !important; }
+  .print-logo span { color: #1B4FFF !important; }
+  .print-contact { font-size: 12.5px; color: #444 !important; }
+  .print-footer { font-size: 11.5px; color: #666 !important; text-align: center; border-top: 1px solid #ccc; padding-top: 10px; margin-top: 26px; }
   body { background: #fff !important; color: #111 !important; }
   .tool-hero { padding: 24px 0 !important; }
   .tool-hero h1, .rp-call h3, .rp-dont h3, .rp-after h3 { color: #111 !important; }
