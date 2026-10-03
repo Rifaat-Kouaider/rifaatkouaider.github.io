@@ -57,7 +57,7 @@
         <span class="section-tag">Emergency Sheet</span>
         <h1>Ransomware hit your practice.<br>Do this first.</h1>
         <p>Breathe. Then work the list: five calls, in order. Print this page and tape it inside your server room door.</p>
-        <p class="no-print"><button class="btn btn-secondary" onclick="window.print()"><i class="fa fa-print"></i> Print / Save as PDF</button></p>
+        <p class="no-print"><button class="btn btn-secondary" id="pdfBtn"><i class="fa fa-print"></i> Print / Save as PDF</button></p>
       </div>
     </section>
 
@@ -135,6 +135,20 @@
     </section>
   </main>
 
+  <div class="modal-overlay" id="leadModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+      <button class="modal-close" id="leadClose" aria-label="Close">&times;</button>
+      <h3 id="leadTitle">Get the PDF</h3>
+      <p>Enter your email and the printable version opens right away.</p>
+      <form id="leadForm" novalidate>
+        <input type="email" id="leadEmail" placeholder="you@practice.com" required autocomplete="email">
+        <button type="submit" class="btn btn-primary" id="leadSubmit">Send me the PDF</button>
+        <p class="modal-note" id="leadMsg"></p>
+      </form>
+      <p class="modal-fine">One email with your download. No spam, no list.</p>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -149,5 +163,46 @@
   </footer>
 
   <script src="js/main.js?v=20261018"></script>
+  <script>
+  (function () {
+    var modal = document.getElementById('leadModal');
+    var form = document.getElementById('leadForm');
+    var emailEl = document.getElementById('leadEmail');
+    var submitBtn = document.getElementById('leadSubmit');
+    var msg = document.getElementById('leadMsg');
+
+    function open() { modal.hidden = false; msg.textContent = ''; msg.className = 'modal-note'; emailEl.value = ''; submitBtn.disabled = false; submitBtn.textContent = 'Send me the PDF'; setTimeout(function () { emailEl.focus(); }, 50); }
+    function close() { modal.hidden = true; }
+    function note(text, isErr) { msg.textContent = text; msg.className = 'modal-note' + (isErr ? ' error' : ''); }
+
+    document.getElementById('pdfBtn').addEventListener('click', open);
+    document.getElementById('leadClose').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = emailEl.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { note('Please enter a valid email address.', true); emailEl.focus(); return; }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      fetch('https://worker-1.rifaat-kouaider.workers.dev/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, source: 'ransomware-pdf' }),
+      }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (!res.ok) throw new Error((res.d && res.d.error) || 'Something went wrong.');
+          close();
+          window.print();
+        })
+        .catch(function (err) {
+          note(err.message || 'Something went wrong. Please try again.', true);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send me the PDF';
+        });
+    });
+  })();
+  </script>
 </body>
 </html>
