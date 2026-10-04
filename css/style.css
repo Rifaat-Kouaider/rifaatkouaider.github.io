@@ -1700,3 +1700,13 @@ footer {
   .qa-emailrow { flex-direction: column; }
   .qa-emailrow .btn { width: 100%; }
 }
+
+/* ── Blog post hero image ── */
+.post-hero-image {
+  margin: 0 0 40px;
+  border-radius: var(--radius-glass, 20px);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 44px rgba(0,0,0,0.35);
+}
+.post-hero-image img { display: block; width: 100%; height: auto; }
