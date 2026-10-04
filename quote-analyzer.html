@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quote Analyzer | Rifaat Kouaider</title>
+  <meta name="description" content="Upload a vendor quote and get a plain-English teardown: what each line means, what's overpriced, what's missing, and the red flags. Free.">
+  <meta name="author" content="Rifaat Kouaider">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1B4FFF">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Social -->
+  <meta property="og:title" content="Quote Analyzer | Rifaat Kouaider">
+  <meta property="og:description" content="Upload a vendor quote. Get a plain-English teardown — what's overpriced, what's missing, and the red flags.">
+  <meta property="og:url" content="https://kouaider.com/quote-analyzer.html">
+  <meta property="og:image" content="https://kouaider.com/og-image.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261021">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Rifaat<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#tools">Tools</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-hero">
+      <div class="container">
+        <span class="section-tag">AI Tool</span>
+        <h1>Vendor quote? Get it translated.</h1>
+        <p>Upload a quote and get a plain-English teardown: what each line actually means, what's overpriced, what's missing, and the red flags. Free.</p>
+      </div>
+    </section>
+
+    <section class="tool-shell">
+      <!-- Step 1: upload -->
+      <div id="qaUploadStep">
+        <div class="qa-upload" id="qaDrop">
+          <i class="fa fa-upload" aria-hidden="true"></i>
+          <h3>Drop your quote here</h3>
+          <p>or <button type="button" class="qa-browse" id="qaBrowse">browse your files</button></p>
+          <p class="qa-fine">PDF only &middot; first 10 pages &middot; your quote is analyzed and never stored</p>
+          <input type="file" id="qaFile" accept="application/pdf,.pdf" hidden>
+        </div>
+        <p class="qa-error" id="qaUploadError" hidden></p>
+
+        <div id="qaMetaStep" hidden>
+          <h3 class="qa-label">What kind of quote is this?</h3>
+          <div class="qa-pills" id="qaPills">
+            <button type="button" class="qa-pill" data-t="msp">MSP contract</button>
+            <button type="button" class="qa-pill" data-t="voip">Phone system</button>
+            <button type="button" class="qa-pill" data-t="hardware">IT hardware</button>
+            <button type="button" class="qa-pill" data-t="software">Software</button>
+            <button type="button" class="qa-pill" data-t="other">Not sure</button>
+          </div>
+
+          <h3 class="qa-label">Where should we send the teardown?</h3>
+          <form id="qaForm" novalidate>
+            <div class="qa-emailrow">
+              <input type="email" id="qaEmail" placeholder="you@practice.com" required autocomplete="email">
+              <button type="submit" class="btn btn-primary" id="qaSubmit">Analyze my quote</button>
+            </div>
+            <p class="qa-error" id="qaFormError" hidden></p>
+            <p class="qa-fine">One email with your teardown. No spam, no list.</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Step 2: analyzing -->
+      <div id="qaLoading" hidden>
+        <div class="qa-spinner"></div>
+        <h3>Reading your quote…</h3>
+        <p>This takes about 20 seconds. We're going line by line.</p>
+      </div>
+
+      <!-- Step 3: results -->
+      <div id="qaResults" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; <span id="year">2026</span> Rifaat Kouaider</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rifaatk/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/Rifaat-Kouaider" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="mailto:rifaat@kouaider.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/pdfjs/pdf.min.js"></script>
+  <script src="js/main.js?v=20261018"></script>
+  <script>
+  (function () {
+    'use strict';
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'js/pdfjs/pdf.worker.min.js';
+    }
+
+    var drop = document.getElementById('qaDrop');
+    var fileInput = document.getElementById('qaFile');
+    var uploadError = document.getElementById('qaUploadError');
+    var metaStep = document.getElementById('qaMetaStep');
+    var form = document.getElementById('qaForm');
+    var emailEl = document.getElementById('qaEmail');
+    var submitBtn = document.getElementById('qaSubmit');
+    var formError = document.getElementById('qaFormError');
+    var loading = document.getElementById('qaLoading');
+    var uploadStep = document.getElementById('qaUploadStep');
+    var resultsEl = document.getElementById('qaResults');
+
+    var quoteText = '';
+    var quoteType = 'other';
+    var fileName = '';
+
+    function showError(el, msg) {
+      el.textContent = msg;
+      el.hidden = false;
+    }
+    function hideError(el) { el.hidden = true; }
+
+    document.getElementById('qaBrowse').addEventListener('click', function () { fileInput.click(); });
+    drop.addEventListener('click', function (e) {
+      if (e.target.id !== 'qaBrowse') fileInput.click();
+    });
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add('dragover'); });
+    });
+    ['dragleave', 'drop'].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove('dragover'); });
+    });
+    drop.addEventListener('drop', function (e) {
+      if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files.length) handleFile(fileInput.files[0]);
+    });
+
+    function handleFile(file) {
+      hideError(uploadError);
+      if (!/\.pdf$/i.test(file.name) && file.type !== 'application/pdf') {
+        showError(uploadError, 'Please upload a PDF file.');
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        showError(uploadError, 'That file is over 10MB. Try a smaller export.');
+        return;
+      }
+      fileName = file.name;
+      drop.querySelector('h3').textContent = 'Reading ' + fileName + '…';
+      var reader = new FileReader();
+      reader.onload = function () {
+        extractText(new Uint8Array(reader.result));
+      };
+      reader.onerror = function () {
+        showError(uploadError, 'Could not read that file. Try another PDF.');
+        drop.querySelector('h3').textContent = 'Drop your quote here';
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function extractText(data) {
+      pdfjsLib.getDocument({ data: data }).promise.then(function (pdf) {
+        var pages = Math.min(pdf.numPages, 10);
+        var jobs = [];
+        for (var i = 1; i <= pages; i++) {
+          jobs.push(pdf.getPage(i).then(function (page) {
+            return page.getTextContent().then(function (tc) {
+              return tc.items.map(function (it) { return it.str; }).join(' ');
+            });
+          }));
+        }
+        return Promise.all(jobs);
+      }).then(function (texts) {
+        quoteText = texts.join('\n').replace(/\s+/g, ' ').trim();
+        if (quoteText.length < 50) {
+          showError(uploadError, 'Could not read enough text from that PDF. It may be a scanned image — try a text-based export.');
+          drop.querySelector('h3').textContent = 'Drop your quote here';
+          return;
+        }
+        drop.querySelector('h3').textContent = fileName;
+        metaStep.hidden = false;
+        metaStep.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }).catch(function () {
+        showError(uploadError, 'Could not read that PDF. Try another file.');
+        drop.querySelector('h3').textContent = 'Drop your quote here';
+      });
+    }
+
+    document.getElementById('qaPills').addEventListener('click', function (e) {
+      var btn = e.target.closest('.qa-pill');
+      if (!btn) return;
+      document.querySelectorAll('.qa-pill').forEach(function (p) { p.classList.remove('selected'); });
+      btn.classList.add('selected');
+      quoteType = btn.dataset.t;
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      hideError(formError);
+      var email = emailEl.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError(formError, 'Please enter a valid email address.');
+        emailEl.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Analyzing…';
+      uploadStep.hidden = true;
+      loading.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      fetch('https://worker-1.rifaat-kouaider.workers.dev/analyze-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, quoteText: quoteText, quoteType: quoteType }),
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, d: d }; });
+      }).then(function (res) {
+        loading.hidden = true;
+        if (!res.ok) throw new Error((res.d && res.d.error) || 'Something went wrong.');
+        renderResults(res.d.analysis, email);
+      }).catch(function (err) {
+        loading.hidden = true;
+        uploadStep.hidden = false;
+        showError(formError, err.message || 'Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Analyze my quote';
+      });
+    });
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function renderResults(a, email) {
+      var h = '';
+      h += '<div class="qa-verdict"><span class="section-tag">Bottom line</span><p>' + esc(a.verdict) + '</p></div>';
+      h += '<div class="qa-summary"><h3>What this quote covers</h3><p>' + esc(a.summary) + '</p>' +
+           '<p class="qa-total"><strong>Total found:</strong> ' + esc(a.total_found || 'Not stated') + '</p></div>';
+
+      if (a.line_items && a.line_items.length) {
+        h += '<h3 class="qa-label">Line by line</h3><div class="qa-items">';
+        a.line_items.forEach(function (it) {
+          h += '<div class="qa-item"><div class="qa-item-head"><strong>' + esc(it.item) + '</strong>' +
+               (it.price && it.price !== 'Not priced' ? '<span>' + esc(it.price) + '</span>' : '') + '</div>' +
+               '<p>' + esc(it.plain_english) + '</p>' +
+               (it.flag ? '<span class="qa-flag">' + esc(it.flag) + '</span>' : '') + '</div>';
+        });
+        h += '</div>';
+      }
+      function list(title, items) {
+        if (!items || !items.length) return '';
+        h += '<h3 class="qa-label">' + title + '</h3><ul class="qa-list">';
+        items.forEach(function (i) { h += '<li>' + esc(i) + '</li>'; });
+        h += '</ul>';
+      }
+      list('Overpriced — or worth a question', a.overpriced);
+      list('Missing', a.missing);
+      list('Red flags', a.red_flags);
+
+      h += '<div class="rp-cta no-print"><h3>Want a human to double-check before you sign?</h3>' +
+           '<p>Send the quote over — I\'ll tell you what I\'d push back on.</p>' +
+           '<a href="index.html#contact" class="btn btn-primary">Get in Touch</a></div>';
+      h += '<p class="qa-fine" style="text-align:center;margin-top:20px;">Teardown sent to ' + esc(email) + '</p>';
+
+      resultsEl.innerHTML = h;
+      resultsEl.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  })();
+  </script>
+</body>
+</html>
