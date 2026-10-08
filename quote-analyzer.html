@@ -178,6 +178,10 @@
         showError(uploadError, 'That file is over 10MB. Try a smaller export.');
         return;
       }
+      if (!window.pdfjsLib) {
+        showError(uploadError, 'The PDF reader failed to load. Please refresh the page and try again.');
+        return;
+      }
       fileName = file.name;
       drop.querySelector('h3').textContent = 'Reading ' + fileName + '…';
       var reader = new FileReader();
