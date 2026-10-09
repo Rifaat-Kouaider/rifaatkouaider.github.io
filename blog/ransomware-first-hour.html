@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>What to Do in the First Hour of a Ransomware Attack | Rifaat Kouaider</title>
+  <meta name="description" content="Six healthcare ransomware disclosures landed this week. The first hour after a ransom note is about containment, not rescue. Here is the checklist.">
+  <meta name="author" content="Rifaat Kouaider">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#1B4FFF">
+  <link rel="manifest" href="../site.webmanifest">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <!-- Social -->
+  <meta property="og:title" content="What to Do in the First Hour of a Ransomware Attack | Rifaat Kouaider">
+  <meta property="og:description" content="Six healthcare ransomware disclosures landed this week. The first hour is about containment, not rescue. Here is the checklist.">
+  <meta property="og:url" content="https://kouaider.com/blog/ransomware-first-hour.html">
+  <meta property="og:image" content="https://kouaider.com/og-image.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts / CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/style.css?v=20261022">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">Rifaat<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#tools">Tools</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post">
+      <header class="post-header">
+        <h1>What to Do in the First Hour of a Ransomware Attack</h1>
+        <p class="post-meta">October 10, 2026 &middot; 3 min read</p>
+        <!-- Episode: What to Do in the First Hour of a Ransomware Attack -->
+        <div class="audio-player" id="audioPlayer">
+          <span class="audio-label">Listen</span>
+          <button class="audio-play" id="audioPlay" aria-label="Play article audio"><i class="fa fa-play"></i></button>
+          <div class="audio-track" id="audioTrack"><div class="audio-fill" id="audioFill"></div></div>
+          <span class="audio-time" id="audioTime">0:00</span>
+          <audio id="articleAudio" preload="metadata" src="https://worker-1.rifaat-kouaider.workers.dev/audio?ep=ep-2e8ffffd-1b8c-4738-aea0-4c6b10ab5e50"></audio>
+        </div>
+      </header>
+      <figure class="post-hero-image">
+        <img src="../images/blog/ransomware-first-hour.webp" alt="Abstract illustration of an hourglass formed from a draining blue digital waveform" loading="eager" width="1600" height="900">
+      </figure>
+      <div class="post-body">
+        <p>This week alone: a medical college in Illinois, a 600-bed hospital in Barcelona, a hospital system in Hawaii, a medical data company in the US, a community hospital in Ontario, and a hospital in Peru. All disclosed as ransomware victims in the same seven days.</p>
+        <p>Two of them are worth your attention specifically. Nipigon District Memorial Hospital in Ontario publicly confirmed that files were stolen containing personal and health information of patients, former long-term care residents, job applicants, and volunteers. They detected the intrusion on September 14 and confirmed the data theft on October 1. And in the US, breaches at AngMar Management Services and Clover Health affecting roughly 250,000 patient records were reported to HHS and disclosed this week, after attackers exfiltrated around 700 gigabytes of patient data before encrypting anything.</p>
+        <p>That last detail is the honest read most plans get wrong.</p>
+        <h2>By the time you see the ransom note, your data is already gone</h2>
+        <p>Every one of this week's cases used double extortion. The attackers steal the data first, then encrypt it. So you are not negotiating to protect your data. That decision was made weeks ago, quietly, on their terms. You are negotiating to get your systems back.</p>
+        <p>Which means the first hour is about containment, not rescue. Speed matters more than elegance. Here is the checklist, in order.</p>
+        <h2>The first-hour checklist</h2>
+        <ol>
+          <li>Isolate the affected systems now. Pull the network cable, disable the NIC, or quarantine the VLAN. If you cannot disconnect cleanly, power down. Do not wait for a meeting.</li>
+          <li>Cut shared drives and shared storage. Ransomware moves sideways through shares. Kill access before it spreads.</li>
+          <li>Reset compromised credentials, starting with admin and service accounts.</li>
+          <li>Block the attacker's infrastructure at your firewall and proxy: the command-and-control domains and IPs.</li>
+          <li>Preserve evidence. Memory dumps, disk images, logs. Do not wipe anything yet. You will need it for the investigation and the breach assessment.</li>
+          <li>Assume the data is already out. Bring in legal counsel and start the breach notification assessment now, not after the dust settles.</li>
+          <li>Verify your offline and immutable backups are intact before they get encrypted too. The first hour decides whether recovery takes days or weeks.</li>
+        </ol>
+        <h2>One of this week's victims got containment right</h2>
+        <p>The UIC College of Medicine case is the contrast worth studying. Some of their systems were knocked offline, but the main network stayed up and patient care at UI Health was never disrupted. The incident was reported to law enforcement and systems were restored.</p>
+        <p>That is what network segmentation buys you. It is unglamorous, nobody posts about it, and it worked exactly the way it is supposed to.</p>
+        <h2>The HIPAA part you cannot skip</h2>
+        <p>Under HIPAA, a ransomware attack with data exfiltration is presumed to be a breach unless a risk assessment proves otherwise. The Breach Notification Rule requires notifying affected individuals without unreasonable delay and no later than 60 days. Breaches affecting 500 or more people get reported to HHS, plus local media. Report the incident to the FBI as well. It is voluntary, but it is how takedowns happen.</p>
+        <p>The practices that survive these events are not the ones with the best security products. They are the ones that had the first hour rehearsed before the ransom note arrived.</p>
+        <p>Start with the one page that matters: my <a href="../ransomware-response.html">Ransomware Response Sheet</a>. Print it, put it on the wall in the IT office, before you need it.</p>
+      </div>
+
+      <div class="post-cta">
+        <h3>Want this thinking applied to your practice?</h3>
+        <p>Every practice is different. Tell me what you're dealing with and we'll figure out the right next step together.</p>
+        <a href="../index.html#contact" class="btn btn-primary">Get in Touch</a>
+      </div>
+
+      <nav class="post-nav" aria-label="Post navigation">
+        <a href="index.html">&larr; All posts</a>
+        <span></span>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <span>&copy; <span id="year">2026</span> Rifaat Kouaider</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rifaatk/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://github.com/Rifaat-Kouaider" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="mailto:rifaat@kouaider.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js?v=20261018"></script>
+</body>
+</html>
