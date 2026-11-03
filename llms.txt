@@ -22,9 +22,8 @@
 - [Cost of Doing Nothing](https://kouaider.com/roi-calculator.html): ROI calculator estimating what IT friction and downtime cost a practice per year.
 - [Ransomware Response Sheet](https://kouaider.com/ransomware-response.html): One-page emergency sheet — the first five calls to make when ransomware hits a practice. Printable PDF: https://kouaider.com/ransomware-response-sheet.pdf
 
-## Blog & Podcast
+## Podcast
 
-- [Blog](https://kouaider.com/blog/): Weekly plainspoken takes on healthcare IT, cybersecurity, and AI for medical practices.
 - [Kouaider Briefing](https://worker-1.rifaat-kouaider.workers.dev/feed): Weekly podcast — each blog post as a short narrated episode.
 
 ## About
